@@ -19,6 +19,8 @@ model User {
   messages  Message[] // Messages sent by this user.
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
+
+  @@map("user")
 }
 
 // Room model represents chat rooms created by users.
@@ -29,6 +31,8 @@ model Room {
   messages  Message[] // Messages sent in this room.
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
+
+  @@map("room")
 }
 
 // Message model represents messages sent within chat rooms.
@@ -41,4 +45,6 @@ model Message {
   roomId    Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("message")
 }
