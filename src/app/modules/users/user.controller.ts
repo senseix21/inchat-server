@@ -19,7 +19,7 @@ const getAll = catchAsync(async (req, res) => {
     sendResponse(res, {
         success: true,
         statusCode: httpStatus.OK,
-        message: "User created successfully",
+        message: "Users fetched successfully",
         data: result
     })
 });
