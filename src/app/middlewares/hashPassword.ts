@@ -8,6 +8,7 @@ export const hashPassword = async (req: Request, res: Response, next: NextFuncti
         const hashedPassword = await bcrypt.hash(password, salt);
         req.body.password = hashedPassword;
         next();
+
     } catch (error) {
         res.status(500).json({ error: 'Password hashing failed' });
     }

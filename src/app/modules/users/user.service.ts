@@ -2,27 +2,13 @@ import { PrismaClient, User } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-type IUser = {
-    username: string,
-    password: string,
-    roomname: string
-}
-const create = async (data: IUser): Promise<User> => {
-    const { roomname, username, password } = data;
+const create = async (data: User): Promise<User> => {
     const result = await prisma.user.create({
-        data: {
-            username,
-            password,
-            rooms: {
-                create: {
-                    name: roomname
-                }
-            }
-
-        }
+        data
     })
     return result;
 }
+
 
 const getAll = async (): Promise<User[]> => {
     const result = await prisma.user.findMany({})
