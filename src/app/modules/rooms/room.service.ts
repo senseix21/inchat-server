@@ -13,7 +13,6 @@ const create = async (data: Room): Promise<Room> => {
 }
 
 const addUserToRoom = async (userId: number, roomId: number): Promise<User> => {
-    console.log(userId, roomId);
     const transaction = await prisma.$transaction([
         prisma.user.findUnique({ where: { id: userId } }),
         prisma.room.findUnique({ where: { id: roomId } })
